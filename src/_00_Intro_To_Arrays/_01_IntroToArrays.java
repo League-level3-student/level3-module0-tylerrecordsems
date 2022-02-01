@@ -24,7 +24,7 @@ System.out.println(yeah[2]);
         //    BE SURE TO USE THE ARRAY'S length VARIABLE
 for (int i = 0; i < 5; i++) {
 	System.out.println(yeah[i]);
-}
+} 
         // 7. make an array of 50 integers
 for (int i = 0; i < 50; i++) {
 int[] bro = {i};	
