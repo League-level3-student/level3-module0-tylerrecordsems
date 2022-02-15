@@ -32,10 +32,10 @@ int[] bro = {i};
 
         // 8. use a for loop to make every value of the integer array a random
         //    number
-for (int i = 0; i < 50; i++) {
+
 	Random ran = new Random(50);
-	/// START : bro[i]=ran();
-}
+//	 bro[]= {}ran;
+
         // 9. without printing the entire array, print only the smallest number
         //    on the array
 
