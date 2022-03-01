@@ -50,7 +50,7 @@ window.setExtendedState(JFrame.MAXIMIZED_BOTH);
         // 11. set the JFrame to visible.
 window.setVisible(true);
         // 12. Give the user the instructions for the game.
-
+JOptionPane.showMessageDialog(null,"Find the Button!");
         // 13. initialize the hiddenButton variable to a random number less than
         //     the int created in step 3
 
