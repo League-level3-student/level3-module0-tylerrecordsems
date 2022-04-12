@@ -55,7 +55,7 @@ public class FireworkDisplay extends JPanel implements ActionListener {
     }
 
     private void fire() {
-        fireButton.setEnabled(false);
+       // fireButton.setEnabled(false);
         firework = new Firework();
         firework.launch();
         timer.start();
