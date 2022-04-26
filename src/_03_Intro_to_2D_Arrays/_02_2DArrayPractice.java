@@ -89,9 +89,17 @@ public class _02_2DArrayPractice {
      *          null, null, null, null
      *          null, null, null, Object
      */
-    public Object test4() {
-        Object[][] objects = { {null, null, null, null}, {null, null, null, new Object()} };
-        return objects[1][3];
+    public Object test4(Object[][] objects) {
+     for (int i = 0; i < objects.length; i++) {
+		for (int j = 0; j < objects[i].length; j++) {
+			if(objects[i][j]!=null) {
+				return objects[i][j];
+			}
+       
+		}
+	}
+	return null;
+    	
        
     }
     
@@ -99,22 +107,22 @@ public class _02_2DArrayPractice {
      *          null, null, Object, null
      *          null, null, null, null
      */
-    public Object test5() {
-        Object[][] objects = { {null, null, new Object(), null}, {null, null, null, null} };
+    //public Object test5() {
         
-        return objects[0][2];
-    }
+        
+   //     return objects[0][2];
+    //}
     
     /*
      * Write an algorithm to return the sum of all the numbers in the
      * first row (row 0)
      */
-    public Integer test6() {
-        int[][] nums = { {8, 7, 6, 5}, {4, 3}, {2, 1, 0} };
+    public Integer test6(int[][] nums) {
+        // STARTHERERE
         for (int i = 0; i < nums.length; i++) {
-	//		nums[0][i]+nums[0][i]+
+			nums[i][0]+=nums[i][1];
 		}
-        return null;
+        return nums[0][0];
     }
     
     /*
@@ -124,7 +132,7 @@ public class _02_2DArrayPractice {
     public Integer test7() {
         int[][] nums = { {8, 7, 6, 5}, {4, 3}, {2, 1, 0} };
         
-        return null;
+        return nums[0][0]+nums[1][0]+nums[2][0];
     }
     
     /*

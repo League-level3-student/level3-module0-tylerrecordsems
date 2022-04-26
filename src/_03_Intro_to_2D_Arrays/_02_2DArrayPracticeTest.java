@@ -35,19 +35,31 @@ class _02_2DArrayPracticeTest {
     
     @Test
     void test_4_index1() {
-        Object obj = new _02_2DArrayPractice().test4();
+    	 Object[][] objects = { {null, null, null, null}, {null, null, null, new Object()} };
+        Object obj = new _02_2DArrayPractice().test4(objects);
         assertTrue(obj != null);
+   	 Object[][] objectss = { {null, new Object(), null, null}, {null, null, null, null} };
+     Object objj = new _02_2DArrayPractice().test4(objectss);
+     assertTrue(objj != null);
     }
     
     @Test
     void test_5_index2() {
-        Object obj = new _02_2DArrayPractice().test5();
+    	Object[][] objects = { {null, null, new Object(), null}, {null, null, null, null} };
+    	Object obj = new _02_2DArrayPractice().test4(objects);
         assertTrue(obj != null);
+        Object[][] objectss = { {null, null, new Object(), null}, {null, null, null, null} };
+        Object objj = new _02_2DArrayPractice().test4(objectss);
+        assertTrue(objj != null);
     }
     
     @Test
     void test_6_oneRowSum() {
-        Integer sum = new _02_2DArrayPractice().test6();
+    	int[][] nums = { {8, 7, 6, 5}, {4, 3}, {2, 1, 0} };
+        Integer sum = new _02_2DArrayPractice().test6(nums);
+        assertTrue(sum == 26);
+        int[][] numss = { {12, 62, 24}, {7, 2,7}, {8, 3, 4,2,999999999} };
+         sum = new _02_2DArrayPractice().test6(numss);
         assertTrue(sum == 26);
     }
     
