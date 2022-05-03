@@ -60,7 +60,7 @@ class _02_2DArrayPracticeTest {
         assertTrue(sum == 26);
         int[][] numss = { {12, 62, 24}, {7, 2,7}, {8, 3, 4,2,999999999} };
          sum = new _02_2DArrayPractice().test6(numss);
-        assertTrue(sum == 26);
+        assertTrue(sum == 98);
     }
     
     @Test

@@ -118,11 +118,11 @@ public class _02_2DArrayPractice {
      * first row (row 0)
      */
     public Integer test6(int[][] nums) {
-        // STARTHERERE
-        for (int i = 0; i < nums.length; i++) {
-			nums[i][0]+=nums[i][1];
+       int sum=0;
+        for (int i = 0; i < nums[0].length; i++) {
+			sum+=nums[0][i];
 		}
-        return nums[0][0];
+        return sum;
     }
     
     /*
@@ -131,17 +131,26 @@ public class _02_2DArrayPractice {
      */
     public Integer test7() {
         int[][] nums = { {8, 7, 6, 5}, {4, 3}, {2, 1, 0} };
-        
-        return nums[0][0]+nums[1][0]+nums[2][0];
+        int sum=0;
+        for (int i = 0; i < nums.length; i++) {
+			sum+=nums[i][0];
+		}
+        return sum;
+      
     }
-    
+    // do youu need help? -- Keith
     /*
      * Write an algorithm to return the sum of all the numbers in the
      * specified row
      */
+    // Looks good. cool! I would replace sum1 with matrix
     public Integer getSumByRow(int[][] matrix, int row) {
-        
-        return null;
+       // int[][] ma= {{3,1,8},{4,9,7,2},{5,6}};
+        int sum2=0;
+        for (int i = 0; i < matrix[row].length; i++) {
+			sum2+=matrix[row][i];
+		}
+        return sum2;
     }
     
     /*
@@ -149,8 +158,12 @@ public class _02_2DArrayPractice {
      * specified column
      */
     public Integer getSumByColumn(int[][] matrix, int col) {
+    	int sum2=0;
+        for (int i = 0; i < matrix.length; i++) {
+			sum2+=matrix[i][col];
+		}
+        return sum2;
         
-        return null;
     }
     
     /*
@@ -168,27 +181,38 @@ public class _02_2DArrayPractice {
      * North neighbor = 2
      * South neighbor = 8
      * 
-     * 1. Assume input row and column values are valid indexes in the matrix.
+     * 1. Assume input row and column v	alues are valid indexes in the matrix.
      * 2. If the neighbor does not exist, i.e. it's outside the grid
      *    boundaries, return null.
      */
     public Integer getEastNeighbor(int[][] matrix, int row, int col) {
         
-        return null;
+        // this should return the value in the matrix ?????? looks goodayayyy wait
+        
+    	if (col+1>=matrix.length) {
+			return null;
+		}
+    	return matrix[row][col+1];
     }
     
     public Integer getWestNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
+    	if (col-1<=-1) {
+			return null;
+		}
+        return matrix[row][col-1];
     }
     
     public Integer getNorthNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
+    	if (row-1<=-1) {
+			return null;
+		}
+        return matrix[row-1][col];
     }
     
     public Integer getSouthNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
+        if (row+1>=matrix[row].length) {
+			return null;
+		}
+        return matrix[row+1][col];
     }
 }
