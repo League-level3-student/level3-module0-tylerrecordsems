@@ -30,10 +30,10 @@ public class _02_2DArrayPractice {
      *          3, 4, 5
      *          6, 7, 8
      */
-	int[][] array2d ={{0,1,2},{3,4,5},{6,7,8}};
+	Integer[][] array2d=new Integer [3][3];
     public Integer[][] test1() {
         
-        return null;
+        return array2d;
     }
     
     /*
@@ -41,10 +41,10 @@ public class _02_2DArrayPractice {
      *          "a", "b", "c", "d",
      *          "e", "f", "g", "e"
      */
-    String[][] arrayS ={{"a","b","c","d"},{"e","f","g","e"}};
+    
     public String[][] test2() {
         
-        return null;
+        return new String [2][4];
     }
     
     /*
@@ -55,10 +55,10 @@ public class _02_2DArrayPractice {
      *          true, true,
      *          true, false
      */
-    Boolean[][] arrayB= {{true,false},{false,false},{false,true},{true,true},{true,false}};
+   
     public Boolean[][] test3() {
         
-        return null;
+        return new Boolean [5][2];
     }
     
     /*
