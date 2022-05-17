@@ -16,7 +16,7 @@ public class GridPanel extends JPanel{
     private int rows;
     private int cols;
     // 1. Create a 2D array of pixels. Do not initialize it yet.
-Pixel[][] pixels = new Pixel[rows][cols];
+Pixel[][] pixels ;
     private Color color;
 
     public GridPanel(int w, int h, int r, int c) {
@@ -27,7 +27,9 @@ Pixel[][] pixels = new Pixel[rows][cols];
 
         this.pixelWidth = windowWidth / cols;
         this.pixelHeight = windowHeight / rows;
-
+        
+        // THis needs to be initialized after. If you initialize it on line 19 it will use default values (aka zeros) for rows and cols - Keith
+        this.pixels = new Pixel[rows][cols];
         color = Color.BLACK;
 
         setPreferredSize(new Dimension(windowWidth, windowHeight));
@@ -38,7 +40,7 @@ Pixel[][] pixels = new Pixel[rows][cols];
         // 3. Iterate through the array and initialize each element to a new pixel.
 for (int i = 0; i < pixels.length; i++) {
 	for (int j = 0; j < pixels.length; j++) {
-		pixels[i][j]= new Pixel(i,j); // might have to change to (i * this.pixelWidth, j * this.pixelHeight)
+		pixels[i][j]= new Pixel(i * this.pixelWidth, j * this.pixelHeight); // might have to change to (i * this.pixelWidth, j * this.pixelHeight)
 	}
 }
 
@@ -51,7 +53,9 @@ for (int i = 0; i < pixels.length; i++) {
     public void clickPixel(int mouseX, int mouseY) {
         // 5. Use the mouseX and mouseY variables to change the color
         //    of the pixel that was clicked. *HINT* Use the pixel's dimensions.
-pixels[mouseX%pixelWidth][mouseY%pixelHeight].color=Color.ORANGE;
+    	
+    	// these values needed to be divided. You wer useing % which gives you the remainder. - Keith
+    	pixels[mouseX/pixelWidth][mouseY/pixelHeight].color=this.color; // also, this was being set to orange which doesn't use the selected color. -Keith
     }
 
     @Override
@@ -59,6 +63,13 @@ pixels[mouseX%pixelWidth][mouseY%pixelHeight].color=Color.ORANGE;
         // 4. Iterate through the array.
         //    For every pixel in the list, fill in a rectangle using the pixel's color.
         //    Then, use drawRect to add a grid pattern to your display.
-
+for (int i = 0; i < pixels.length; i++) {
+	for (int j = 0; j < pixels.length; j++) {
+		g.setColor(pixels[i][j].color);
+		g.fillRect(pixels[i][j].x, pixels[i][j].y, pixelWidth, pixelHeight);
+		g.setColor(Color.BLACK);
+		g.drawRect(pixels[i][j].x, pixels[i][j].y, pixelWidth, pixelHeight);
+	}
+}
     }
 }
