@@ -26,7 +26,10 @@ public class Cell implements Drawable{
      * by underpopulation.
      */
      
-   
+    
+    	
+    	
+    
 	   
    
    /*
@@ -40,8 +43,14 @@ public class Cell implements Drawable{
      * as if by reproduction.
      * (source: Wikipedia) 
      */
-    public void liveOrDie(int numNeighbors) {
-
+    public void liveOrDie(int Alive) {
+if(Alive<=3) { //if Alive <3 die - if Alive =4,5 - if alive>6 die
+    		this.isAlive=false;
+    	}if(Alive==4||Alive ==5) { //if Alive <3 die - if Alive =4,5 - if alive>6 die
+    		this.isAlive=true;
+    	}if(Alive>=6) { //if Alive <3 die - if Alive =4,5 - if alive>6 die
+    		this.isAlive=false;
+    	}
     }
 
     public int getX() {
@@ -58,14 +67,14 @@ public class Cell implements Drawable{
     public void draw(Graphics g) {
         if(isAlive) {
             g.setColor(Color.BLUE);
-            g.fillRect(x, y, cellSize, cellSize);
+            g.fillRect(cellSize*x, cellSize*y, cellSize, cellSize);
         } else {
             g.setColor(Color.LIGHT_GRAY);
-            g.fillRect(x, y, cellSize, cellSize);
+            g.fillRect(cellSize*x, cellSize*y, cellSize, cellSize);
         }
         
         // Black border around the cell
         g.setColor(Color.BLACK);
-        g.drawRect(x, y, cellSize, cellSize);
+        g.drawRect(cellSize*x, cellSize*y, cellSize, cellSize);
     }
 }

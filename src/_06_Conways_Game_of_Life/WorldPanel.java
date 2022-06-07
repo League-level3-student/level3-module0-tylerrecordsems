@@ -32,7 +32,7 @@ Cell cells[][];
         // 2. Calculate the cell size.
 cellSize=10;
         // 3a. Initialize the cell array to the appropriate size.
-cells= new Cell[10][10];
+cells= new Cell[10][210];
         // 3b. Iterate through the array and initialize each cell.
         //    Don't forget to consider the cell's dimensions when 
         //    passing in the location.
@@ -42,11 +42,11 @@ for (int i = 0; i < cells.length; i++) {
 	}
 }
     }
-
+Random coinFlip= new Random(2);
     public void randomizeCells() {
         // 4. Iterate through each cell and randomly set each
         //    cell's isAlive memeber to true or false
-    	Random coinFlip= new Random(2);
+    	
     	for (int i = 0; i < cells.length; i++) {
     		for (int j = 0; j < cells.length; j++) {
     			if (coinFlip.nextBoolean()) { // flip coin, if heads, isActive=true
@@ -96,7 +96,7 @@ for (int i = 0; i < cells.length; i++) {
         g.setColor(Color.BLACK);
         g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
     }
-
+  
     // Advances world one step TODO
     public void step() {
         // 7. iterate through cells and fill in the livingNeighbors array
@@ -104,7 +104,14 @@ for (int i = 0; i < cells.length; i++) {
         int[][] livingNeighbors = new int[cellsPerRow][cellsPerRow];
 
         // 8. check if each cell should live or die
-
+for (int i = 0; i < livingNeighbors.length; i++) {
+	for (int j = 0; j < livingNeighbors.length; j++) {
+		getLivingNeighbors(cells,i,j);
+		Cell bob = cells [i][j];
+		bob.liveOrDie(0);
+	}
+	
+}
         repaint();
     }
 
